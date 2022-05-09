@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Kata3
 {
@@ -13,12 +14,36 @@ namespace Kata3
 
         public string convert(int number)
         {
-            _split.Split(number);
+            StringBuilder sb = new StringBuilder();
 
-            if (number < 5) { return "I"; }
-            if (number == 5) { return "V"; }
-            if (number == 6) { return "VI"; }
-            return "VII";
+            for (int i = 0; i < number; i++)
+            {
+                if (number < 4)
+                {
+                    sb.Append("I");
+                }
+
+                if (number == 4)
+                {
+                    sb.Append("I");
+                    sb.Append("V");
+                    break;
+                }
+                else if (number == 5)
+                {
+                    sb.Append("V");
+                    break;
+                }
+                else if (i == 0)
+                {
+                    sb.Append("V");
+                    i = 5;
+                }
+                sb.Append("I");
+
+            }
+
+            return sb.ToString();
 
         }
     }

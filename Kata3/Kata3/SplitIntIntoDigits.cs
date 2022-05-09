@@ -6,11 +6,18 @@ using System.Threading.Tasks;
 
 namespace Kata3
 {
-    internal class SplitIntIntoDigits : ISplitIntoDigits<int>
+    internal class SplitIntIntoDigits : ISplitIntoDigits<String, int>
     {
-        public int Split(int value)
+        public List<String> Split(int value)
         {
-            throw new NotImplementedException();
+            List<string> SplitList = new List<string>();
+
+            foreach(char c in value.ToString())
+            {
+                SplitList.Add(c.ToString());
+            }
+
+            return SplitList;
         }
     }
 }

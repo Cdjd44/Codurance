@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Kata3
 {
-    internal interface ISplitIntoDigits<T>
+    internal interface ISplitIntoDigits<TOutput,TInput>
     {
-        public T Split(T value);
+        public List<TOutput> Split(TInput value);
     }
 }
