@@ -26,5 +26,33 @@ namespace Kata3_Tests
             RomanNumeral rn = new RomanNumeral();
             Assert.AreEqual("I", rn.convert(3));
         }
+
+        [TestMethod]
+        public void Convert_4_to_I()
+        {
+            RomanNumeral rn = new RomanNumeral();
+            Assert.AreEqual("I", rn.convert(4));
+        }
+
+        [TestMethod]
+        public void Convert_5_to_V()
+        {
+            RomanNumeral rn = new RomanNumeral();
+            Assert.AreEqual("I", rn.convert(4));
+        }
+
+        [TestMethod]
+        public void Convert_6_to_VI()
+        {
+            RomanNumeral rn = new RomanNumeral();
+            Assert.AreEqual("I", rn.convert(4));
+        }
+
+        [TestMethod]
+        public void Convert_7_to_VII()
+        {
+            RomanNumeral rn = new RomanNumeral();
+            Assert.AreEqual("I", rn.convert(4));
+        }
     }
 }

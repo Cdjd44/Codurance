@@ -14,10 +14,10 @@ namespace Kata3
 
         public string convert(int number)
         {
-            if (number == 3) { return "I"; }
-            if (number == 2) { return "I"; }
-            if (number == 1) { return "I"; }
-            return "";
+            if (number < 5) { return "I"; }
+            if (number == 5) { return "V"; }
+            if (number == 6) { return "VI"; }
+            return "VII";
 
         }
     }
