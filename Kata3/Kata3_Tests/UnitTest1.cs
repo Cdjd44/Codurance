@@ -19,5 +19,12 @@ namespace Kata3_Tests
             RomanNumeral rn = new RomanNumeral();
             Assert.AreEqual("I", rn.convert(2));
         }
+
+        [TestMethod]
+        public void Convert_3_to_I()
+        {
+            RomanNumeral rn = new RomanNumeral();
+            Assert.AreEqual("I", rn.convert(3));
+        }
     }
 }
