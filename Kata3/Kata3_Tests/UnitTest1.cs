@@ -38,21 +38,21 @@ namespace Kata3_Tests
         public void Convert_5_to_V()
         {
             RomanNumeral rn = new RomanNumeral();
-            Assert.AreEqual("I", rn.convert(4));
+            Assert.AreEqual("I", rn.convert(5));
         }
 
         [TestMethod]
         public void Convert_6_to_VI()
         {
             RomanNumeral rn = new RomanNumeral();
-            Assert.AreEqual("I", rn.convert(4));
+            Assert.AreEqual("I", rn.convert(6));
         }
 
         [TestMethod]
         public void Convert_7_to_VII()
         {
             RomanNumeral rn = new RomanNumeral();
-            Assert.AreEqual("I", rn.convert(4));
+            Assert.AreEqual("I", rn.convert(70));
         }
     }
 }
