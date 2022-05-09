@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Kata3
 {
-    internal class SplitIntIntoDigits : ISplitIntoDigits
+    internal class SplitIntIntoDigits : ISplitIntoDigits<int>
     {
-        public void Split()
+        public int Split(int value)
         {
             throw new NotImplementedException();
         }
