@@ -14,7 +14,8 @@ namespace Kata3
 
         public string convert(int number)
         {
-            if(number == 1) { return "I"; }
+            if (number == 2) { return "I"; }
+            if (number == 1) { return "I"; }
             return "";
 
         }
