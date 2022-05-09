@@ -68,5 +68,19 @@ namespace Kata3_Tests
             RomanNumeral rn = new RomanNumeral();
             Assert.AreEqual("IX", rn.convert(9));
         }
+
+        [TestMethod]
+        public void Convert_10_to_X()
+        {
+            RomanNumeral rn = new RomanNumeral();
+            Assert.AreEqual("X", rn.convert(10));
+        }
+
+        [TestMethod]
+        public void Convert_29_to_XXIX()
+        {
+            RomanNumeral rn = new RomanNumeral();
+            Assert.AreEqual("XXIX", rn.FromNumberToRoman(29));
+        }
     }
 }
