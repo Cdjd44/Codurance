@@ -3,10 +3,6 @@ using System.Collections.Generic;
 
 namespace Kata3
 {
-    public class Class1
-    {
-    }
-
     public class RomanNumeral
     {
         public RomanNumeral()
