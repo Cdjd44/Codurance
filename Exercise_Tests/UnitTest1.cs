@@ -60,5 +60,14 @@ namespace Exercise_Tests
             Assert.AreEqual("5:7:N", rover.execute(command));
         }
 
+        [TestMethod]
+        public void Check_Input_For_RMMLM()
+        {
+            string command = "RMMLM";
+            MarsRover rover = new MarsRover("0:0:N");
+
+            Assert.AreEqual("2:1:N", rover.execute(command));
+        }
+
     }
 }

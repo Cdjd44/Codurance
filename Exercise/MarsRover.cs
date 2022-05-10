@@ -112,10 +112,10 @@ namespace Exercise
                     coordinates[1] = (Int32.Parse(coordinates[1]) - 1).ToString();
                     break;
                 case "E":
-                    coordinates[0] = (Int32.Parse(coordinates[1]) + 1).ToString();
+                    coordinates[0] = (Int32.Parse(coordinates[0]) + 1).ToString();
                     break;
                 case "W":
-                    coordinates[0] = (Int32.Parse(coordinates[1]) - 1).ToString();
+                    coordinates[0] = (Int32.Parse(coordinates[0]) - 1).ToString();
                     break;
             }
 
