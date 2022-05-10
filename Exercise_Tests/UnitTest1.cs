@@ -73,7 +73,14 @@ namespace Exercise_Tests
         public void Check_Initialisation_Of_xAxis()
         {
             RoverGrid grid = new RoverGrid(10,10);
-            Assert.AreEqual(10, grid.xAxis.length());
+            Assert.AreEqual(10, grid.xAxis);
+        }
+
+        [TestMethod]
+        public void Check_Initialisation_Of_yAxis()
+        {
+            RoverGrid grid = new RoverGrid(10, 10);
+            Assert.AreEqual(10, grid.yAxis);
         }
 
     }
