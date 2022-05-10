@@ -42,5 +42,23 @@ namespace Exercise_Tests
             Assert.AreEqual("5:5:S", rover.execute(command));
         }
 
+        [TestMethod]
+        public void Check_Input_For_RR()
+        {
+            string command = "RR";
+            MarsRover rover = new MarsRover("5:5:N");
+
+            Assert.AreEqual("5:5:S", rover.execute(command));
+        }
+
+        [TestMethod]
+        public void Check_Input_For_MM()
+        {
+            string command = "MM";
+            MarsRover rover = new MarsRover("5:5:N");
+
+            Assert.AreEqual("5:7:N", rover.execute(command));
+        }
+
     }
 }
