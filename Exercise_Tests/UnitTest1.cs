@@ -69,5 +69,12 @@ namespace Exercise_Tests
             Assert.AreEqual("2:1:N", rover.execute(command));
         }
 
+        [TestMethod]
+        public void Check_Initialisation_Of_xAxis()
+        {
+            RoverGrid grid = new RoverGrid(10,10);
+            Assert.AreEqual(10, grid.xAxis.length());
+        }
+
     }
 }
