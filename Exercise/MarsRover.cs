@@ -5,17 +5,17 @@ namespace Exercise
 {
     public class MarsRover
     {
-        string _location;
+        public string location { get; }
 
-        public MarsRover(string location)
+        public MarsRover(string _location)
         {
-            _location = location;
+            location = _location;
             RoverGrid rg = new RoverGrid(10, 10);
         }
         public string execute(string command)
         {
             List<string> currentLocation = new List<string>();
-            currentLocation = LocationSplit(_location);
+            currentLocation = LocationSplit(location);
 
             List<string> commandBreakdown = new List<string>();
             commandBreakdown = commandSplit(command);

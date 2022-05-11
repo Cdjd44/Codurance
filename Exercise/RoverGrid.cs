@@ -14,7 +14,7 @@ namespace Exercise
             yAxis = v2;
         }
 
-        public string[,] initialiseGrid()
+        public string[,] initialiseGrid(MarsRover mr)
         {
             int i = 0;
             int j = 0;
@@ -29,7 +29,6 @@ namespace Exercise
                     grid[i, j] = "o";
                 }
             }
-
             return grid;
         }
     }

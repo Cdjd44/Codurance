@@ -12,15 +12,15 @@ namespace Exercise
         {
             RoverGrid rg = new RoverGrid(10, 10);
             MarsRover mr = new MarsRover("0:0:N");
-            PrintGrid(rg);
+            PrintGrid(rg, mr);
             WriteHelp();
             
         }
 
-        private static void PrintGrid(RoverGrid grid)
+        private static void PrintGrid(RoverGrid grid, MarsRover mr)
         {
             int i, j = 0;
-            string[,] landscape = grid.initialiseGrid();
+            string[,] landscape = grid.initialiseGrid(mr);
 
             // xAxis lable
             for (i = 0; i < grid.xAxis; i++)
@@ -45,6 +45,7 @@ namespace Exercise
                 }
                 Console.WriteLine();
             }
+            Console.WriteLine();
         }
 
         private static void WriteHelp()
