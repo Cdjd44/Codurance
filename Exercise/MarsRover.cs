@@ -10,6 +10,7 @@ namespace Exercise
         public MarsRover(string location)
         {
             _location = location;
+            RoverGrid rg = new RoverGrid(10, 10);
         }
         public string execute(string command)
         {
