@@ -12,6 +12,7 @@ namespace Exercise
         {
             RoverGrid rg = new RoverGrid(10, 10);
             MarsRover mr = new MarsRover("0:0:N");
+            
             PrintGrid(rg, mr);
             WriteHelp();
             

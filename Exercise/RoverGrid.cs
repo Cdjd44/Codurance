@@ -19,6 +19,7 @@ namespace Exercise
             int i = 0;
             int j = 0;
             string[,] grid = new string[xAxis, yAxis];
+            List<string> mrCoord = mr.LocationSplit(mr.location);
 
             // Initialise X axis
             for (i = 0; i < xAxis; i++)
@@ -27,6 +28,11 @@ namespace Exercise
                 for (j = 0; j < yAxis; j++)
                 {
                     grid[i, j] = "o";
+
+                    if (Int32.Parse(mrCoord[0]) == i && Int32.Parse(mrCoord[1]) == j)
+                    {
+                        grid[i, j] = "M";
+                    }
                 }
             }
             return grid;

@@ -1,5 +1,6 @@
 using Exercise;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace Exercise_Tests
 {
@@ -81,6 +82,31 @@ namespace Exercise_Tests
         {
             RoverGrid grid = new RoverGrid(10, 10);
             Assert.AreEqual(10, grid.yAxis);
+        }
+        [TestMethod]
+        public void Check_Initial_Placement_Of_Rover()
+        {
+            MarsRover rover = new MarsRover("0:0:N");
+            RoverGrid grid = new RoverGrid(10, 10);
+            string[,] plane = grid.initialiseGrid(rover);
+            
+            Assert.IsTrue(plane[0, 0] == "M");
+         
+        }
+
+        [TestMethod]
+        public void Check_Random_Placement_Of_Rover()
+        {
+            Random rnd = new Random();
+            int xAxis = rnd.Next(9);
+            int yAxis = rnd.Next(9);
+            string roverLocation = xAxis.ToString() + ":" + yAxis.ToString() + ":N";
+            MarsRover rover = new MarsRover(roverLocation);
+            RoverGrid grid = new RoverGrid(10, 10);
+            string[,] plane = grid.initialiseGrid(rover);
+
+            Assert.IsTrue(plane[xAxis, yAxis] == "M");
+
         }
 
     }
