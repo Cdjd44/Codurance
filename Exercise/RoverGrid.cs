@@ -27,14 +27,10 @@ namespace Exercise
                 // Initialise Y axis
                 for (j = 0; j < yAxis; j++)
                 {
-                    grid[i, j] = "o";
-
-                    if (Int32.Parse(mrCoord[0]) == i && Int32.Parse(mrCoord[1]) == j)
-                    {
-                        grid[i, j] = "M";
-                    }
+                    grid[j, i] = "o";
                 }
             }
+            grid[Int32.Parse(mrCoord[0]), Int32.Parse(mrCoord[1])] = "X";
             return grid;
         }
     }

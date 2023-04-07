@@ -5,12 +5,11 @@ namespace Exercise
 {
     public class MarsRover
     {
-        public string location { get; }
+        public string location { get; set; }
 
         public MarsRover(string _location)
         {
             location = _location;
-            RoverGrid rg = new RoverGrid(10, 10);
         }
         public string execute(string command)
         {
@@ -107,16 +106,16 @@ namespace Exercise
             switch (coordinates[2])
             {
                 case "N":
-                    coordinates[1] = (Int32.Parse(coordinates[1]) + 1).ToString();
+                    coordinates[0] = (Int32.Parse(coordinates[0]) - 1).ToString();
                     break;
                 case "S":
-                    coordinates[1] = (Int32.Parse(coordinates[1]) - 1).ToString();
-                    break;
-                case "E":
                     coordinates[0] = (Int32.Parse(coordinates[0]) + 1).ToString();
                     break;
+                case "E":
+                    coordinates[1] = (Int32.Parse(coordinates[1]) + 1).ToString();
+                    break;
                 case "W":
-                    coordinates[0] = (Int32.Parse(coordinates[0]) - 1).ToString();
+                    coordinates[1] = (Int32.Parse(coordinates[1]) - 1).ToString();
                     break;
             }
 

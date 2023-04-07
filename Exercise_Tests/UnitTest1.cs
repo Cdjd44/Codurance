@@ -31,7 +31,7 @@ namespace Exercise_Tests
             string command = "M";
             MarsRover rover = new MarsRover("5:5:N");
 
-            Assert.AreEqual("5:6:N", rover.execute(command));
+            Assert.AreEqual("4:5:N", rover.execute(command));
         }
 
         [TestMethod]
@@ -58,16 +58,16 @@ namespace Exercise_Tests
             string command = "MM";
             MarsRover rover = new MarsRover("5:5:N");
 
-            Assert.AreEqual("5:7:N", rover.execute(command));
+            Assert.AreEqual("3:5:N", rover.execute(command));
         }
 
         [TestMethod]
-        public void Check_Input_For_RMMLM()
+        public void Check_Input_For_RMMRML()
         {
-            string command = "RMMLM";
+            string command = "RMMRML";
             MarsRover rover = new MarsRover("0:0:N");
 
-            Assert.AreEqual("2:1:N", rover.execute(command));
+            Assert.AreEqual("1:2:E", rover.execute(command));
         }
 
         [TestMethod]
@@ -83,6 +83,7 @@ namespace Exercise_Tests
             RoverGrid grid = new RoverGrid(10, 10);
             Assert.AreEqual(10, grid.yAxis);
         }
+
         [TestMethod]
         public void Check_Initial_Placement_Of_Rover()
         {
@@ -90,7 +91,7 @@ namespace Exercise_Tests
             RoverGrid grid = new RoverGrid(10, 10);
             string[,] plane = grid.initialiseGrid(rover);
             
-            Assert.IsTrue(plane[0, 0] == "M");
+            Assert.IsTrue(plane[0, 0] == "X");
          
         }
 
@@ -105,7 +106,7 @@ namespace Exercise_Tests
             RoverGrid grid = new RoverGrid(10, 10);
             string[,] plane = grid.initialiseGrid(rover);
 
-            Assert.IsTrue(plane[xAxis, yAxis] == "M");
+            Assert.IsTrue(plane[xAxis, yAxis] == "X");
 
         }
 

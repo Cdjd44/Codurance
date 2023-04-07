@@ -10,12 +10,21 @@ namespace Exercise
     {
         static void Main(string[] args)
         {
+            // RoverGrid (X,Y) - X = Up/Down Y = Left/Right
             RoverGrid rg = new RoverGrid(10, 10);
-            MarsRover mr = new MarsRover("0:0:N");
-            
-            PrintGrid(rg, mr);
-            WriteHelp();
-            
+            MarsRover mr = new MarsRover("5:5:N");
+            string input = "";
+            do
+            {
+                PrintGrid(rg, mr);
+                WriteHelp();
+                Console.WriteLine("***** Rover Facing:" + mr.location + "*****");
+                input = getUserInput();
+                mr.location = mr.execute(input);
+            }
+            while (input != "E");
+
+
         }
 
         private static void PrintGrid(RoverGrid grid, MarsRover mr)
@@ -35,6 +44,7 @@ namespace Exercise
                     Console.Write(i.ToString() + " ");
                 }
             }
+            Console.Write("X");
             Console.WriteLine();
 
             for (i = 0; i < grid.xAxis; i++)
@@ -46,6 +56,7 @@ namespace Exercise
                 }
                 Console.WriteLine();
             }
+            Console.WriteLine("Y");
             Console.WriteLine();
         }
 
@@ -54,9 +65,16 @@ namespace Exercise
             Console.WriteLine("Valid Commands are:");
             Console.WriteLine("L - Turn Rover Left");
             Console.WriteLine("R - Turn Rover Right");
-            Console.WriteLine("F - Move Rover Forward");
+            Console.WriteLine("M - Move Rover Forward");
             Console.WriteLine("E - End");
             Console.WriteLine("Enter to execute commands");
+        }
+
+        private static string getUserInput()
+        {
+            Console.Write("Command: ");
+            return Console.ReadLine();
+
         }
     }
 }
