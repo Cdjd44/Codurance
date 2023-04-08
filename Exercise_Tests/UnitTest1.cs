@@ -31,7 +31,7 @@ namespace Exercise_Tests
             string command = "M";
             MarsRover rover = new MarsRover("5:5:N");
 
-            Assert.AreEqual("4:5:N", rover.execute(command));
+            Assert.AreEqual("5:4:N", rover.execute(command));
         }
 
         [TestMethod]
@@ -58,7 +58,7 @@ namespace Exercise_Tests
             string command = "MM";
             MarsRover rover = new MarsRover("5:5:N");
 
-            Assert.AreEqual("3:5:N", rover.execute(command));
+            Assert.AreEqual("5:3:N", rover.execute(command));
         }
 
         [TestMethod]
@@ -67,7 +67,7 @@ namespace Exercise_Tests
             string command = "RMMRML";
             MarsRover rover = new MarsRover("0:0:N");
 
-            Assert.AreEqual("1:2:E", rover.execute(command));
+            Assert.AreEqual("2:1:E", rover.execute(command));
         }
 
         [TestMethod]
@@ -116,7 +116,34 @@ namespace Exercise_Tests
             string command = "M";
             MarsRover rover = new MarsRover("0:0:N");
 
-            Assert.AreEqual("9:0:N", rover.execute(command));
+            Assert.AreEqual("0:9:N", rover.execute(command));
+        }
+
+        [TestMethod]
+        public void Check_Wrap_Around_From_S()
+        {
+            string command = "LLM";
+            MarsRover rover = new MarsRover("0:9:N");
+
+            Assert.AreEqual("0:0:S", rover.execute(command));
+        }
+
+        [TestMethod]
+        public void Check_Wrap_Around_From_E()
+        {
+            string command = "RM";
+            MarsRover rover = new MarsRover("9:0:N");
+
+            Assert.AreEqual("0:0:E", rover.execute(command));
+        }
+
+        [TestMethod]
+        public void Check_Wrap_Around_From_W()
+        {
+            string command = "LM";
+            MarsRover rover = new MarsRover("0:0:N");
+
+            Assert.AreEqual("9:0:W", rover.execute(command));
         }
 
     }

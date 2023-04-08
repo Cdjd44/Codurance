@@ -21,14 +21,14 @@ namespace Exercise
             string[,] grid = new string[xAxis, yAxis];
             List<string> mrCoord = mr.LocationSplit(mr.location);
 
-            // Initialise X axis
-            for (i = 0; i < xAxis; i++)
+            // Initialise Y axis
+            for (j = 0; j < yAxis; j++)
             {
-                // Initialise Y axis
-                for (j = 0; j < yAxis; j++)
+                // Initialise X axis
+                for (i = 0; i < xAxis; i++)
                 {
-                    grid[j, i] = "o";
-                }
+                    grid[i, j] = "o";
+                }  
             }
             grid[Int32.Parse(mrCoord[0]), Int32.Parse(mrCoord[1])] = "X";
             return grid;

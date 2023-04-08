@@ -31,7 +31,7 @@ namespace Exercise
         {
             int i, j = 0;
             string[,] landscape = grid.initialiseGrid(mr);
-
+            bool yNumbers = false;
             // xAxis lable
             for (i = 0; i < grid.xAxis; i++)
             {
@@ -47,14 +47,15 @@ namespace Exercise
             Console.Write("X");
             Console.WriteLine();
 
-            for (i = 0; i < grid.xAxis; i++)
+            for (j = 0; j < grid.yAxis; j++)
             {
-                for (j = 0; j < grid.yAxis; j++)
+                for (i = 0; i < grid.xAxis; i++)
                 {
-                    if(j == 0) { Console.Write(i.ToString() + " "); }
+                    if(!yNumbers) { Console.Write(j.ToString() + " "); yNumbers = true; }
                     Console.Write(landscape[i, j] + " ");
                 }
                 Console.WriteLine();
+                yNumbers = false;
             }
             Console.WriteLine("Y");
             Console.WriteLine();
