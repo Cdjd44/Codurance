@@ -109,16 +109,44 @@ namespace Exercise
             switch (coordinates[2])
             {
                 case "N":
-                    coordinates[0] = (Int32.Parse(coordinates[0]) - 1).ToString();
+                    if(Int32.Parse(coordinates[0]) == 0)
+                    { 
+                        coordinates[0] = (9).ToString(); 
+                    }
+                    else 
+                    { 
+                        coordinates[0] = (Int32.Parse(coordinates[0]) - 1).ToString(); 
+                    }
                     break;
                 case "S":
-                    coordinates[0] = (Int32.Parse(coordinates[0]) + 1).ToString();
+                    if (Int32.Parse(coordinates[0]) == 9)
+                    {
+                        coordinates[0] = (0).ToString();
+                    }
+                    else
+                    {
+                        coordinates[0] = (Int32.Parse(coordinates[0]) + 1).ToString();
+                    }
                     break;
                 case "E":
-                    coordinates[1] = (Int32.Parse(coordinates[1]) + 1).ToString();
+                    if(Int32.Parse(coordinates[1]) == 9)
+                    {
+                        coordinates[1] = (0).ToString();
+                    }
+                    else
+                    {
+                        coordinates[1] = (Int32.Parse(coordinates[1]) + 1).ToString();
+                    }
                     break;
                 case "W":
-                    coordinates[1] = (Int32.Parse(coordinates[1]) - 1).ToString();
+                    if (Int32.Parse(coordinates[1]) == 0)
+                    {
+                        coordinates[1] = (9).ToString();
+                    }
+                    else
+                    {
+                        coordinates[1] = (Int32.Parse(coordinates[1]) - 1).ToString();
+                    }
                     break;
             }
 

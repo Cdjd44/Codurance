@@ -22,7 +22,7 @@ namespace Exercise
                 input = getUserInput();
                 mr.location = mr.execute(input);
             }
-            while (input != "E");
+            while (input != "E" &&  input != "e");
 
 
         }
