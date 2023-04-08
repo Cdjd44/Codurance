@@ -24,12 +24,15 @@ namespace Exercise
                 switch (c)
                 {
                     case "L":
+                    case "l":
                         currentLocation[2] = rotateLeft(currentLocation[2]);
                         break;
                     case "R":
+                    case "r":
                         currentLocation[2] = rotateRight(currentLocation[2]);
                         break;
                     case "M":
+                    case "m":
                         currentLocation = moveRover(currentLocation);
                         break;
 

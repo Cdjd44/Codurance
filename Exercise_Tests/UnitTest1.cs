@@ -110,5 +110,14 @@ namespace Exercise_Tests
 
         }
 
+        [TestMethod]
+        public void Check_Wrap_Around_From_N()
+        {
+            string command = "MM";
+            MarsRover rover = new MarsRover("0:0:N");
+
+            Assert.AreEqual("9:0:N", rover.execute(command));
+        }
+
     }
 }
