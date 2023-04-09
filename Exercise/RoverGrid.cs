@@ -58,9 +58,6 @@ namespace Exercise
                 }
             }
 
-           
-
-            //mr.location = (mrCoord[0]).ToString() + ":" + (mrCoord[1]).ToString() + ":" + mrCoord[2];
             grid[Int32.Parse(mrCoord[0]), Int32.Parse(mrCoord[1])] = "X";
             return grid;
         }
