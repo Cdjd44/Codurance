@@ -191,6 +191,7 @@ namespace Exercise_Tests
             MarsRover rover = new MarsRover("0:0:N");
             RoverGrid grid = new RoverGrid(10, 10);
             Boundary bounds = new Boundary(grid.xAxis, grid.yAxis);
+            Obstacle ob = new Obstacle(1);
 
             grid.grid = grid.initialiseGrid(rover);
             grid.grid = grid.addObstacle(0, 1);
