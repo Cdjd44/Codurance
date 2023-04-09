@@ -194,8 +194,8 @@ namespace Exercise_Tests
 
             grid.grid = grid.initialiseGrid(rover);
             rover.location = rover.execute(command);
-            grid.grid = grid.updateGrid(rover);
-
+            
+            // returns true if rover is out of bounds
             Assert.IsTrue(bounds.CheckOOB(rover));
         }
 
