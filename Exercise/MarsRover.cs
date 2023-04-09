@@ -106,9 +106,6 @@ namespace Exercise
         {
             List<string> coordinates = currentLocation;
 
-
-
-            // Rover is not out of bounds.
             switch (coordinates[2])
             {
                 case "N":
