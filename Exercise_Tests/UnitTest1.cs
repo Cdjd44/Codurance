@@ -116,8 +116,11 @@ namespace Exercise_Tests
             string command = "M";
             MarsRover rover = new MarsRover("0:0:N");
             RoverGrid grid = new RoverGrid(10, 10);
+
+            grid.grid = grid.initialiseGrid(rover);
             rover.location = rover.execute(command);
-            grid.initialiseGrid(rover);
+            grid.grid = grid.updateGrid(rover);
+            
 
             Assert.AreEqual("0:9:N", rover.location);
         }
@@ -128,8 +131,10 @@ namespace Exercise_Tests
             string command = "LLM";
             MarsRover rover = new MarsRover("0:9:N");
             RoverGrid grid = new RoverGrid(10, 10);
+
+            grid.grid = grid.initialiseGrid(rover);
             rover.location = rover.execute(command);
-            grid.initialiseGrid(rover);
+            grid.grid = grid.updateGrid(rover);
 
             Assert.AreEqual("0:0:S", rover.location);
         }
@@ -140,8 +145,10 @@ namespace Exercise_Tests
             string command = "RM";
             MarsRover rover = new MarsRover("9:0:N");
             RoverGrid grid = new RoverGrid(10, 10);
+
+            grid.grid = grid.initialiseGrid(rover);
             rover.location = rover.execute(command);
-            grid.initialiseGrid(rover);
+            grid.grid = grid.updateGrid(rover);
 
             Assert.AreEqual("0:0:E", rover.location);
         }
@@ -152,10 +159,44 @@ namespace Exercise_Tests
             string command = "LM";
             MarsRover rover = new MarsRover("0:0:N");
             RoverGrid grid = new RoverGrid(10, 10);
+
+            grid.grid = grid.initialiseGrid(rover);
             rover.location = rover.execute(command);
-            grid.initialiseGrid(rover);
+            grid.grid = grid.updateGrid(rover);
 
             Assert.AreEqual("9:0:W", rover.location);
+        }
+
+        [TestMethod]
+        public void Check_for_Obstacle_in_Path()
+        {
+            string command = "RM";
+            MarsRover rover = new MarsRover("0:0:N");
+            RoverGrid grid = new RoverGrid(10, 10);
+
+            grid.grid = grid.initialiseGrid(rover);
+            grid.grid = grid.addObstacle(0, 1);
+            rover.location = rover.execute(command);
+            grid.grid = grid.updateGrid(rover);  
+
+            rover.location = rover.execute(command);
+
+            Assert.AreEqual("O:0:0:W", rover.location);
+        }
+
+        [TestMethod]
+        public void Check_for_out_of_bound()
+        {
+            string command = "M";
+            MarsRover rover = new MarsRover("0:0:N");
+            RoverGrid grid = new RoverGrid(10, 10);
+            Boundary bounds = new Boundary(grid.xAxis, grid.yAxis);
+
+            grid.grid = grid.initialiseGrid(rover);
+            rover.location = rover.execute(command);
+            grid.grid = grid.updateGrid(rover);
+
+            Assert.IsTrue(bounds.CheckOOB(rover));
         }
 
     }

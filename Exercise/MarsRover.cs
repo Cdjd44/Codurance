@@ -124,5 +124,32 @@ namespace Exercise
 
             return coordinates;
         }
+
+        public List<string> checkForOutofBounds(List<string> currentLocation, Boundary bounds)
+        {
+            List<string> coordinates = currentLocation;
+
+            // Check rover location and wrap around if out of array bounds.
+            // N/S & S/N warp around
+            if (Int32.Parse(currentLocation[1]) == -1)
+            {
+                currentLocation[1] = (bounds.yAxis - 1).ToString();
+            }
+            else if (Int32.Parse(currentLocation[1]) == bounds.yAxis)
+            {
+                currentLocation[1] = 0.ToString();
+            }
+            // E/W & W/E warp around
+            if (Int32.Parse(currentLocation[0]) == -1)
+            {
+                currentLocation[0] = (bounds.xAxis - 1).ToString();
+            }
+            else if (Int32.Parse(currentLocation[0]) == bounds.xAxis)
+            {
+                currentLocation[0] = 0.ToString();
+            }
+
+            return coordinates;
+        }
     }
 }

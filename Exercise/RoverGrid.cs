@@ -34,13 +34,6 @@ namespace Exercise
                 }  
             }
 
-            Random rnd = new Random();
-            int randomX = rnd.Next(xAxis);
-            int randomY = rnd.Next(yAxis);
-
-            grid[randomX, randomY] = "#";
-            obstacle.Add(randomX.ToString() + ":" + randomY.ToString());
-
             mr.location = (mrCoord[0]).ToString() + ":" + (mrCoord[1]).ToString() + ":" + mrCoord[2];
             grid[Int32.Parse(mrCoord[0]), Int32.Parse(mrCoord[1])] = "X";
             return grid;
@@ -65,28 +58,34 @@ namespace Exercise
                 }
             }
 
-            // Check rover location and wrap around if out of array bounds.
-            // N/S & S/N warp around
-            if (Int32.Parse(mrCoord[1]) == -1)
-            {
-                mrCoord[1] = (yAxis - 1).ToString();
-            }
-            else if (Int32.Parse(mrCoord[1]) == yAxis)
-            {
-                mrCoord[1] = 0.ToString();
-            }
-            // E/W & W/E warp around
-            if (Int32.Parse(mrCoord[0]) == -1)
-            {
-                mrCoord[0] = (xAxis - 1).ToString();
-            }
-            else if (Int32.Parse(mrCoord[0]) == xAxis)
-            {
-                mrCoord[0] = 0.ToString();
-            }
+           
 
-            mr.location = (mrCoord[0]).ToString() + ":" + (mrCoord[1]).ToString() + ":" + mrCoord[2];
+            //mr.location = (mrCoord[0]).ToString() + ":" + (mrCoord[1]).ToString() + ":" + mrCoord[2];
             grid[Int32.Parse(mrCoord[0]), Int32.Parse(mrCoord[1])] = "X";
+            return grid;
+        }
+
+        public string[,] addObstacle()
+        {
+            Random rnd = new Random();
+            int randomX = rnd.Next(xAxis);
+            int randomY = rnd.Next(yAxis);
+
+            grid[randomX, randomY] = "#";
+            obstacle.Add(randomX.ToString() + ":" + randomY.ToString());
+
+            return grid;
+        }
+
+        public string[,] addObstacle(int xCoord, int yCoord)
+        {
+            Random rnd = new Random();
+            int x = xCoord;
+            int y = yCoord;
+
+            grid[x, y] = "#";
+            obstacle.Add(x.ToString() + ":" + y.ToString());
+
             return grid;
         }
     }
