@@ -26,31 +26,31 @@ namespace Exercise
             return false;
         }
 
-        //public bool CheckOOB(MarsRover rover)
-        //{
-        //    List<string> coordinates = rover.LocationSplit(rover.location);
+        public string RoverWrapAround(MarsRover rover)
+        {
+            List<string> coordinates = rover.LocationSplit(rover.location);
 
-        //    // Check rover location and wrap around if out of array bounds.
-        //    // N/S & S/N warp around
-        //    if (Int32.Parse(coordinates[1]) == -1)
-        //    {
-        //        coordinates[1] = (yAxis - 1).ToString();
-        //    }
-        //    else if (Int32.Parse(coordinates[1]) == yAxis)
-        //    {
-        //        coordinates[1] = 0.ToString();
-        //    }
-        //    // E/W & W/E warp around
-        //    if (Int32.Parse(coordinates[0]) == -1)
-        //    {
-        //        coordinates[0] = (xAxis - 1).ToString();
-        //    }
-        //    else if (Int32.Parse(coordinates[0]) == xAxis)
-        //    {
-        //        coordinates[0] = 0.ToString();
-        //    }
+            // Check rover location and wrap around if out of array bounds.
+            // N/S & S/N warp around
+            if (Int32.Parse(coordinates[1]) == -1)
+            {
+                coordinates[1] = (yAxis - 1).ToString();
+            }
+            else if (Int32.Parse(coordinates[1]) == yAxis)
+            {
+                coordinates[1] = 0.ToString();
+            }
+            // E/W & W/E warp around
+            if (Int32.Parse(coordinates[0]) == -1)
+            {
+                coordinates[0] = (xAxis - 1).ToString();
+            }
+            else if (Int32.Parse(coordinates[0]) == xAxis)
+            {
+                coordinates[0] = 0.ToString();
+            }
 
-        //    return coordinates;
-        //}
+            return (coordinates[0]).ToString() + ":" + (coordinates[1]).ToString() + ":" + coordinates[2];
+        }
     }
 }

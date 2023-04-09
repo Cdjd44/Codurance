@@ -11,7 +11,7 @@ namespace Exercise
         {
             location = _location;
         }
-        public string execute(string command)
+        public string execute(string command, Boundary bounds)
         {
             List<string> currentLocation = new List<string>();
             currentLocation = LocationSplit(location);
@@ -33,7 +33,7 @@ namespace Exercise
                         break;
                     case "M":
                     case "m":
-                        currentLocation = moveRover(currentLocation);
+                        currentLocation = moveRover(currentLocation, bounds);
                         break;
 
                 }
@@ -102,54 +102,54 @@ namespace Exercise
             return dir;
         }
 
-        public List<string> moveRover(List<string> currentLocation)
+        public List<string> moveRover(List<string> currentLocation, Boundary bounds)
         {
             List<string> coordinates = currentLocation;
 
-            switch (coordinates[2])
+            if (!bounds.CheckOOB(this))
             {
-                case "N":
-                    coordinates[1] = (Int32.Parse(coordinates[1]) - 1).ToString();
-                    break;
-                case "S":
-                    coordinates[1] = (Int32.Parse(coordinates[1]) + 1).ToString();
-                    break;
-                case "E":
-                    coordinates[0] = (Int32.Parse(coordinates[0]) + 1).ToString();
-                    break;
-                case "W":
-                    coordinates[0] = (Int32.Parse(coordinates[0]) - 1).ToString();
-                    break;
+                // Rover is not out of bounds.
+                switch (coordinates[2])
+                {
+                    case "N":
+                        coordinates[1] = (Int32.Parse(coordinates[1]) - 1).ToString();
+                        break;
+                    case "S":
+                        coordinates[1] = (Int32.Parse(coordinates[1]) + 1).ToString();
+                        break;
+                    case "E":
+                        coordinates[0] = (Int32.Parse(coordinates[0]) + 1).ToString();
+                        break;
+                    case "W":
+                        coordinates[0] = (Int32.Parse(coordinates[0]) - 1).ToString();
+                        break;
+                }
+            }
+            else
+            {
+                //Rover is out of bounds.
+                // Check rover location and wrap around.
+                // N/S & S/N warp around
+                if (Int32.Parse(currentLocation[1]) == -1)
+                {
+                    currentLocation[1] = (bounds.yAxis - 1).ToString();
+                }
+                else if (Int32.Parse(currentLocation[1]) == bounds.yAxis)
+                {
+                    currentLocation[1] = 0.ToString();
+                }
+                // E/W & W/E warp around
+                if (Int32.Parse(currentLocation[0]) == -1)
+                {
+                    currentLocation[0] = (bounds.xAxis - 1).ToString();
+                }
+                else if (Int32.Parse(currentLocation[0]) == bounds.xAxis)
+                {
+                    currentLocation[0] = 0.ToString();
+                }
             }
 
             return coordinates;
         }
-
-        //public List<string> checkForOutofBounds(List<string> currentLocation, Boundary bounds)
-        //{
-        //    List<string> coordinates = currentLocation;
-
-        //    // Check rover location and wrap around if out of array bounds.
-        //    // N/S & S/N warp around
-        //    if (Int32.Parse(currentLocation[1]) == -1)
-        //    {
-        //        currentLocation[1] = (bounds.yAxis - 1).ToString();
-        //    }
-        //    else if (Int32.Parse(currentLocation[1]) == bounds.yAxis)
-        //    {
-        //        currentLocation[1] = 0.ToString();
-        //    }
-        //    // E/W & W/E warp around
-        //    if (Int32.Parse(currentLocation[0]) == -1)
-        //    {
-        //        currentLocation[0] = (bounds.xAxis - 1).ToString();
-        //    }
-        //    else if (Int32.Parse(currentLocation[0]) == bounds.xAxis)
-        //    {
-        //        currentLocation[0] = 0.ToString();
-        //    }
-
-        //    return coordinates;
-        //}
     }
 }

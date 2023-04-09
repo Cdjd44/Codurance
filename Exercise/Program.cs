@@ -15,6 +15,8 @@ namespace Exercise
             // RoverGrid (X,Y) - X = Up/Down Y = Left/Right
             RoverGrid rg = new RoverGrid(x, y);
             MarsRover mr = new MarsRover("0:0:N");
+            Boundary bounds = new Boundary(rg.xAxis, rg.yAxis);
+
             string input = "";
             string[,] grid = new string[x,y];
             rg.grid = rg.initialiseGrid(mr);
@@ -25,7 +27,7 @@ namespace Exercise
                 WriteHelp();
                 Console.WriteLine("***** Rover Facing:" + mr.location + "*****");
                 input = getUserInput();
-                mr.location = mr.execute(input);
+                mr.location = mr.execute(input, bounds);
             }
             while (input != "E" &&  input != "e");
 
