@@ -214,7 +214,7 @@ namespace Exercise_Tests
             rover.location = rover.execute(command, bounds);
             
             // returns true if rover is out of bounds
-            Assert.IsTrue(bounds.CheckOOB(rover));
+            Assert.IsFalse(bounds.CheckOOB(rover));
         }
 
     }

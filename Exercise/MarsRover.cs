@@ -106,26 +106,26 @@ namespace Exercise
         {
             List<string> coordinates = currentLocation;
 
-            if (!bounds.CheckOOB(this))
+
+
+            // Rover is not out of bounds.
+            switch (coordinates[2])
             {
-                // Rover is not out of bounds.
-                switch (coordinates[2])
-                {
-                    case "N":
-                        coordinates[1] = (Int32.Parse(coordinates[1]) - 1).ToString();
-                        break;
-                    case "S":
-                        coordinates[1] = (Int32.Parse(coordinates[1]) + 1).ToString();
-                        break;
-                    case "E":
-                        coordinates[0] = (Int32.Parse(coordinates[0]) + 1).ToString();
-                        break;
-                    case "W":
-                        coordinates[0] = (Int32.Parse(coordinates[0]) - 1).ToString();
-                        break;
-                }
+                case "N":
+                    coordinates[1] = (Int32.Parse(coordinates[1]) - 1).ToString();
+                    break;
+                case "S":
+                    coordinates[1] = (Int32.Parse(coordinates[1]) + 1).ToString();
+                    break;
+                case "E":
+                    coordinates[0] = (Int32.Parse(coordinates[0]) + 1).ToString();
+                    break;
+                case "W":
+                    coordinates[0] = (Int32.Parse(coordinates[0]) - 1).ToString();
+                    break;
             }
-            else
+
+            if (!bounds.CheckOOB(this))
             {
                 //Rover is out of bounds.
                 // Check rover location and wrap around.
