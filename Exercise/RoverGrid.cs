@@ -48,7 +48,22 @@ namespace Exercise
 
         public string[,] updateGrid(MarsRover mr)
         {
+            int i = 0;
+            int j = 0;
             List<string> mrCoord = mr.LocationSplit(mr.location);
+
+            // removed previous character of rover from grid
+            for (j = 0; j < yAxis; j++)
+            {
+                // Initialise X axis
+                for (i = 0; i < xAxis; i++)
+                {
+                    if (grid[i, j] == "X")
+                    {
+                        grid[i, j] = "o";
+                    }
+                }
+            }
 
             // Check rover location and wrap around if out of array bounds.
             // N/S & S/N warp around
