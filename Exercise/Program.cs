@@ -16,6 +16,7 @@ namespace Exercise
             RoverGrid rg = new RoverGrid(x, y);
             MarsRover mr = new MarsRover("0:0:N");
             Boundary bounds = new Boundary(rg.xAxis, rg.yAxis);
+            Obstacle obstacle = new Obstacle(x, y, 1, "#");
 
             string input = "";
             string[,] grid = new string[x,y];

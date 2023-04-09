@@ -185,22 +185,21 @@ namespace Exercise_Tests
         }
 
         [TestMethod]
-        public void Check_for_Obstacle_in_Path()
+        public void Find_for_Obstacle_in_Path()
         {
             string command = "RM";
             MarsRover rover = new MarsRover("0:0:N");
             RoverGrid grid = new RoverGrid(10, 10);
             Boundary bounds = new Boundary(grid.xAxis, grid.yAxis);
-            Obstacle ob = new Obstacle(1);
+            Obstacle ob = new Obstacle(0, 1, 1, "#");
 
-            grid.grid = grid.initialiseGrid(rover);
-            grid.grid = grid.addObstacle(0, 1);
-            rover.location = rover.execute(command, bounds);
-            grid.grid = grid.updateGrid(rover);  
+            grid.grid = grid.initialiseGrid(rover, ob);
 
             rover.location = rover.execute(command, bounds);
+            grid.grid = grid.updateGrid(rover);
 
-            Assert.AreEqual("O:0:0:W", rover.location);
+            List<string> roverCoOrds = rover.LocationSplit(rover.location);
+            Assert.( (ob.xCoord + ":" + ob.yCoord), (rover.location[1] + ":" + rover.location[1]) );
         }
 
         [TestMethod]

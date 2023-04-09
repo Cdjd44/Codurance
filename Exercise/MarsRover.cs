@@ -35,7 +35,6 @@ namespace Exercise
                     case "m":
                         currentLocation = moveRover(currentLocation, bounds);
                         break;
-
                 }
             }
 

@@ -1,12 +1,20 @@
-﻿namespace Exercise
+﻿using System;
+
+namespace Exercise
 {
     public class Obstacle
-    {
-        private int v;
+    {     
+        public int xCoord { get; }
+        public int yCoord { get; }
+        public int numObstacles { get; }
+        public string obstacleCharacter = "";
 
-        public Obstacle(int v)
+        public Obstacle(int xCoordinate, int yCoordinate, int numberOfObstacles, string character)
         {
-            this.v = v;
+            xCoord = xCoordinate;
+            yCoord = yCoordinate;
+            numObstacles = numberOfObstacles;
+            obstacleCharacter = character;
         }
     }
 }

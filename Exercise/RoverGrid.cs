@@ -14,7 +14,6 @@ namespace Exercise
         {
             xAxis = v1;
             yAxis = v2;
-            obstacle = new List<string>();
             grid = new string[xAxis, yAxis];
         }
 
@@ -31,10 +30,34 @@ namespace Exercise
                 for (i = 0; i < xAxis; i++)
                 {
                     grid[i, j] = "o";
+                }
+            }
+
+            // Add rover to grid.
+            grid[Int32.Parse(mrCoord[0]), Int32.Parse(mrCoord[1])] = "X";
+            return grid;
+        }
+
+        public string[,] initialiseGrid(MarsRover mr, Obstacle ob)
+        {
+            int i = 0;
+            int j = 0;
+            List<string> mrCoord = mr.LocationSplit(mr.location);
+
+            // Initialise Y axis
+            for (j = 0; j < yAxis; j++)
+            {
+                // Initialise X axis
+                for (i = 0; i < xAxis; i++)
+                {
+                    grid[i, j] = "o";
                 }  
             }
 
-            mr.location = (mrCoord[0]).ToString() + ":" + (mrCoord[1]).ToString() + ":" + mrCoord[2];
+            // Add obstacle to grid.
+            grid[ob.xCoord, ob.yCoord] = ob.obstacleCharacter;
+
+            // Add rover to grid.
             grid[Int32.Parse(mrCoord[0]), Int32.Parse(mrCoord[1])] = "X";
             return grid;
         }
@@ -62,14 +85,13 @@ namespace Exercise
             return grid;
         }
 
-        public string[,] addObstacle()
+        public string[,] addObstacle(Obstacle obstacle)
         {
             Random rnd = new Random();
             int randomX = rnd.Next(xAxis);
             int randomY = rnd.Next(yAxis);
 
-            grid[randomX, randomY] = "#";
-            obstacle.Add(randomX.ToString() + ":" + randomY.ToString());
+            grid[obstacle.xCoord, obstacle.yCoord] = obstacle.obstacleCharacter;
 
             return grid;
         }
