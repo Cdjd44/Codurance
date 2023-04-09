@@ -52,8 +52,8 @@ namespace Exercise
         }
         public List<string> LocationSplit(string location)
         {
-            List<string> split = new List<string>(); 
-            foreach(string s in location.Split(':'))
+            List<string> split = new List<string>();
+            foreach (string s in location.Split(':'))
             {
                 split.Add(s);
             }
@@ -109,44 +109,16 @@ namespace Exercise
             switch (coordinates[2])
             {
                 case "N":
-                    if(Int32.Parse(coordinates[1]) == 0)
-                    { 
-                        coordinates[1] = (9).ToString(); 
-                    }
-                    else 
-                    { 
-                        coordinates[1] = (Int32.Parse(coordinates[1]) - 1).ToString(); 
-                    }
+                    coordinates[1] = (Int32.Parse(coordinates[1]) - 1).ToString();
                     break;
                 case "S":
-                    if (Int32.Parse(coordinates[1]) == 9)
-                    {
-                        coordinates[1] = (0).ToString();
-                    }
-                    else
-                    {
-                        coordinates[1] = (Int32.Parse(coordinates[1]) + 1).ToString();
-                    }
+                    coordinates[1] = (Int32.Parse(coordinates[1]) + 1).ToString();
                     break;
                 case "E":
-                    if(Int32.Parse(coordinates[0]) == 9)
-                    {
-                        coordinates[0] = (0).ToString();
-                    }
-                    else
-                    {
-                        coordinates[0] = (Int32.Parse(coordinates[0]) + 1).ToString();
-                    }
+                    coordinates[0] = (Int32.Parse(coordinates[0]) + 1).ToString();
                     break;
                 case "W":
-                    if (Int32.Parse(coordinates[0]) == 0)
-                    {
-                        coordinates[0] = (9).ToString();
-                    }
-                    else
-                    {
-                        coordinates[0] = (Int32.Parse(coordinates[0]) - 1).ToString();
-                    }
+                    coordinates[0] = (Int32.Parse(coordinates[0]) - 1).ToString();
                     break;
             }
 

@@ -115,8 +115,11 @@ namespace Exercise_Tests
         {
             string command = "M";
             MarsRover rover = new MarsRover("0:0:N");
+            RoverGrid grid = new RoverGrid(10, 10);
+            rover.location = rover.execute(command);
+            grid.initialiseGrid(rover);
 
-            Assert.AreEqual("0:9:N", rover.execute(command));
+            Assert.AreEqual("0:9:N", rover.location);
         }
 
         [TestMethod]
@@ -124,8 +127,11 @@ namespace Exercise_Tests
         {
             string command = "LLM";
             MarsRover rover = new MarsRover("0:9:N");
+            RoverGrid grid = new RoverGrid(10, 10);
+            rover.location = rover.execute(command);
+            grid.initialiseGrid(rover);
 
-            Assert.AreEqual("0:0:S", rover.execute(command));
+            Assert.AreEqual("0:0:S", rover.location);
         }
 
         [TestMethod]
@@ -133,8 +139,11 @@ namespace Exercise_Tests
         {
             string command = "RM";
             MarsRover rover = new MarsRover("9:0:N");
+            RoverGrid grid = new RoverGrid(10, 10);
+            rover.location = rover.execute(command);
+            grid.initialiseGrid(rover);
 
-            Assert.AreEqual("0:0:E", rover.execute(command));
+            Assert.AreEqual("0:0:E", rover.location);
         }
 
         [TestMethod]
@@ -142,8 +151,11 @@ namespace Exercise_Tests
         {
             string command = "LM";
             MarsRover rover = new MarsRover("0:0:N");
+            RoverGrid grid = new RoverGrid(10, 10);
+            rover.location = rover.execute(command);
+            grid.initialiseGrid(rover);
 
-            Assert.AreEqual("9:0:W", rover.execute(command));
+            Assert.AreEqual("9:0:W", rover.location);
         }
 
     }

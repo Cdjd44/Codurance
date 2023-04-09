@@ -10,10 +10,15 @@ namespace Exercise
     {
         static void Main(string[] args)
         {
+            int x = 10;
+            int y = 10;
             // RoverGrid (X,Y) - X = Up/Down Y = Left/Right
-            RoverGrid rg = new RoverGrid(10, 10);
-            MarsRover mr = new MarsRover("5:5:N");
+            RoverGrid rg = new RoverGrid(x, y);
+            MarsRover mr = new MarsRover("0:0:N");
             string input = "";
+            string[,] grid = new string[x,y];
+            rg.grid = rg.initialiseGrid(mr);
+
             do
             {
                 PrintGrid(rg, mr);
@@ -30,7 +35,7 @@ namespace Exercise
         private static void PrintGrid(RoverGrid grid, MarsRover mr)
         {
             int i, j = 0;
-            string[,] landscape = grid.initialiseGrid(mr);
+            string[,] landscape = grid.updateGrid(mr);
             bool yNumbers = false;
             // xAxis lable
             for (i = 0; i < grid.xAxis; i++)
